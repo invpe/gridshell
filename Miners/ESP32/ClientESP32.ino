@@ -1,5 +1,5 @@
 /*
-   Example integration with the GRIDSHELL 
+   Example integration with the GRIDSHELL
    ESP does idle and takes load from Grid Server if available
    https://www.gridshell.net/
    https://github.com/invpe/gridshell
@@ -15,11 +15,15 @@
 #define WIFI_SSID "XXXXXXXXXXX"
 #define WIFI_PWD  "YYYYYYYYYYY"
 
+////////////////////////////////
+// Your GridShell user-hash   //
+////////////////////////////////
+#define GRID_USERHASH "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
 
-uint32_t m_uiLastHB   = 0; 
+
 
 void setup()
-{  
+{
   //
   Serial.begin(115200);
 
@@ -42,17 +46,22 @@ void setup()
       ESP.restart();
   }
 
-  // Initialize GridShell Miner with your user hash 
-  if (CGridShell::GetInstance().Init("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA") == true)
-  { 
+  ///////////////////////////////////////////////////
+  // Initialize GridShell Miner with your user hash//
+  ///////////////////////////////////////////////////
+  if (CGridShell::GetInstance().Init(GRID_USERHASH) == true)
+  {
   }
   else
     ESP.restart();
 }
 void loop()
 {
+  static uint32_t m_uiLastHB   = 0;
 
-  // Keep working on the grid
+  /////////////////////////////
+  // Keep working on the grid//
+  /////////////////////////////
   CGridShell::GetInstance().Tick();
 
   // Check WiFi
