@@ -21,3 +21,6 @@ What is the validation process and why it exists ?
 
 # Read about UPF
 Read about the User Performance Factor on the grid and its impact to the overall performance.
+
+# Read about GIP
+Read about the Grid Improvement Proposal
