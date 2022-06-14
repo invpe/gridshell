@@ -59,7 +59,7 @@ This will be your id of the user on the grid, so keep it safe and never share it
 Also, since the protocol is plain text, rather try to connect your miners from trusted network
 so that it cannot be picked up by somebody.
 
-Here, create your user id: [Click](https://explorer.gridshell.net/api/getuser/)
+Here, create your user id: [Click](https://api.gridshell.net/getuser/)
 
 And you will be presented with two values
 
