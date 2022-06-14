@@ -14,7 +14,7 @@ Read the simple tutorial on how to join the grid with couple of clicks [here](ht
 What are miners, how do they work, why are they needed ? [Check here](https://github.com/invpe/gridshell/blob/main/Documentation/Tutorials/Miners.md)
 
 # Read about Projects and Tasks
-What are projects and tasks, who creates them and why ?
+What are projects and tasks, who creates them and why ? [Find out](https://github.com/invpe/gridshell/blob/main/Documentation/Tutorials/ProjectsAndTasks.md)
 
 # Read about Validation
 What is the validation process and why it exists ?
