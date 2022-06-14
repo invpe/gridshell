@@ -92,15 +92,13 @@ Go and check your miner and user by opening the GridShell user explorer.
 
 -------------------------------------
 
-# GridShell user explorer, let's look at your new user and newly connected miner
+# Let's look at your new user and newly connected
 
-Once all steps are done, it's time for fun.
-[Open up GridShell explorer](https://explorer.gridshell.net:3000/d/MAgVXZj7k/user-explorer) page and provide your newly created **public** userid.
+[Open up GridShell explorer](https://explorer.gridshell.net:3000/d/MAgVXZj7k/user-explorer) page 
 
-
-_VSVTSPPSUSVSP1T1V11T11S1111P1UV11TR1U1ST_
-
+Provide your newly created **public** userid, for me it was _VSVTSPPSUSVSP1T1V11T11S1111P1UV11TR1U1ST_ 
 
 ![GridShell](https://github.com/invpe/gridshell/blob/main/Resources/Tut9.png)
+
 
 
