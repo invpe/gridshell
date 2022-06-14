@@ -16,6 +16,9 @@ There is a great amount of tutorials and playgrounds for BASIC language, and sin
 The speed of the project execution on the Grid is defined by the number of tasks, their computational complexity and available miners online.
 Tasks can't run forever therefore a limit of 60 seconds is applied to task execution for every miner. After this limit is exceeded task is considered failed and restarted.
 
+Projects are considered completed once all tasks are executed, however on top of the completion there is a process called validation - that ensures that all completed tasks within the projects have returned valid outputs from their execution.
+
+
 # Who is creating the projects ?
 In the current version of GridShell, tasks and projects are created by the Core-Team.
 Moving forward, when the grid network matures enough submitting tasks to the grid will be possible for everyone.
