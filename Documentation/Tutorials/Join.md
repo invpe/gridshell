@@ -65,6 +65,11 @@ And you will be presented with two values
 
 ![GridShell](https://github.com/invpe/gridshell/blob/main/Resources/Tut6.png)
 
+ 
+
+❗❗UserHash (Private)  never share it  
+ 
+
 Copy the _UserHash (Private)_ to your sketch at line 21, like so:
 
 ![GridShell](https://github.com/invpe/gridshell/blob/main/Resources/Tut7.png)
