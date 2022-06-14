@@ -92,7 +92,7 @@ Go and check your miner and user by opening the GridShell user explorer.
 
 -------------------------------------
 
-# Let's look at your new user and newly connected
+# Let's look at your new user and newly connected miner
 
 [Open up GridShell explorer](https://explorer.gridshell.net:3000/d/MAgVXZj7k/user-explorer) page 
 
