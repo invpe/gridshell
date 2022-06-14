@@ -7,11 +7,11 @@
 </p>
 
 <div align="center">
-<img src=https://explorer.gridshell.net/resources/miners.png>
-<img src=https://explorer.gridshell.net/resources/tasks.png>
-<img src=https://explorer.gridshell.net/resources/projects.png>
-<img src=https://explorer.gridshell.net/resources/users.png>
-<img src=https://explorer.gridshell.net/resources/tasksr.png>
+<img src="https://explorer.gridshell.net/resources/miners.png" alt="">
+<img src="https://explorer.gridshell.net/resources/tasks.png" alt="">
+<img src="https://explorer.gridshell.net/resources/projects.png" alt="">
+<img src="https://explorer.gridshell.net/resources/users.png" alt="">
+<img src="https://explorer.gridshell.net/resources/tasksr.png" alt="">
 </div>
 
 - - - - - - - - - - - -
