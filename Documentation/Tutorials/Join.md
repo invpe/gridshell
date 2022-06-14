@@ -6,6 +6,7 @@
 
 # What you will need ?
 This tutorial assumes that you have an ESP32 device ready to join the GridShell and that you have Arduino application installed.
+Arduino needs to be able to upload sketches to your ESP32, therefore ensure that this is all working before moving forward.
 
 # Step 1 - standalone miner code
 You will upload a stand alone miner code, the sketch will contribute to the GridShell, making your device an official Miner on the network.
@@ -41,7 +42,7 @@ Step 1 completed, good job ! 🆒
 The sketch requires few items from you to be provided, first let's update your WiFi credentials.
 Miner needs to be able to connect to the internet, thus the WiFi credentials are required.
 
-Put these details here, line 15 and line 16 of the code.
+Put these details here, line 15 and line 16 of the code replacing XX's and YY's with your wifi details.
 
 
 ![GridShell](https://github.com/invpe/gridshell/blob/main/Resources/Tut5.png)
