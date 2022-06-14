@@ -23,4 +23,4 @@ What is the validation process and why it exists ? [Check here](https://github.c
 Read about the User Performance Factor on the grid and its impact to the overall performance. [Read here](https://github.com/invpe/gridshell/blob/main/Documentation/Tutorials/UPF.md)
 
 # Read about GIP
-Read about the Grid Improvement Proposal
+Read about the Grid Improvement Proposal [here](https://github.com/invpe/gridshell/blob/main/Documentation/Tutorials/GIP.md).
