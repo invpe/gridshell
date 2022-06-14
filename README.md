@@ -19,7 +19,7 @@
  
 <div align="center" >
  
-[ [GridShell](https://gridshl.wordpress.com/) ] [ [Documentation](https://github.com/invpe/gridshell/tree/main/Documentation) ] [ Latest Miner Release ] [ [Miners Sources](https://github.com/invpe/gridshell/tree/main/Miners/) ] [ Community ] [ [Explorer](https://explorer.gridshell.net:3000) ] [ [MyBasic](https://github.com/paladin-t/my_basic) ]
+[ [GridShell](https://gridshl.wordpress.com/) ] [ [Documentation](https://github.com/invpe/gridshell/tree/main/Documentation) ] [Miners Sources](https://github.com/invpe/gridshell/tree/main/Miners/) ] [ Community ] [ [Explorer](https://explorer.gridshell.net:3000) ] [ [MyBasic](https://github.com/paladin-t/my_basic) ]
   
 With billions of IOT devices connected today there is a massive potential of computing power ready for use at minimal or even zero cost. These tiny computers are capable of operating on renewable energies like solar power, giving tremendous opportunities for utilizing their computing capabilities without impacting environment.
 
