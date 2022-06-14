@@ -15,3 +15,26 @@ There is a great amount of tutorials and playgrounds for BASIC language, and sin
 
 The speed of the project execution on the Grid is defined by the number of tasks, their computational complexity and available miners online.
 Tasks can't run forever therefore a limit of 60 seconds is applied to task execution for every miner. After this limit is exceeded task is considered failed and restarted.
+
+# Who is creating the projects ?
+In the current version of GridShell, tasks and projects are created by the Core-Team.
+Moving forward, when the grid network matures enough submitting tasks to the grid will be possible for everyone.
+
+# Why are tasks created ?
+There are various reasons for why you would like to distribute your computational workload to a grid system.
+The most common one the GridShell was approached with are:
+ 
+- Repeatable computations
+
+Generating values for dynamic graphs always requires some time to compute.
+Instead of executing this repeatable task on the web server, it can be offloaded to a grid system that will compute and provide results within minutes.
+
+- Offloading  
+
+Moving computation from devices to a grid system to allow more time and space for additional logic.
+
+- Learning
+
+Learning how to program tasks for distributed/paraller computing in a simple way.
+
+ 
