@@ -6,7 +6,7 @@
 
 # User Performance Factor
 The UPF "User Performance Factor" is a value that tells the Grid system how well miners for a user are performing their job.
-As we know, the main job of a miner is to mine the value - execute a given task and return output.
+As we know, the main job of a miner is to mine the value - execute a given task and return proper output.
 
 To calcualte the performance of every user, the GridShell is looking at two very important numbers:
 
