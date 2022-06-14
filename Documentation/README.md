@@ -17,7 +17,7 @@ What are miners, how do they work, why are they needed ? [Check here](https://gi
 What are projects and tasks, who creates them and why ? [Find out](https://github.com/invpe/gridshell/blob/main/Documentation/Tutorials/ProjectsAndTasks.md)
 
 # Read about Validation
-What is the validation process and why it exists ?
+What is the validation process and why it exists ? [Check here](https://github.com/invpe/gridshell/blob/main/Documentation/Tutorials/Validation.md)
 
 # Read about UPF
 Read about the User Performance Factor on the grid and its impact to the overall performance.
