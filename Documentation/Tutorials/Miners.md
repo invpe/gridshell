@@ -26,6 +26,9 @@ that can be used at any time for running valuable computations.
 Some of the GridShell miners are calculating important values like average air quality indexes for hundreths of online sensors every hour.
 
 
-
+<p align=center>
+  <img src=https://github.com/invpe/gridshell/blob/main/Resources/GridShellSolar.jpg>
+  <i>6 GridShell miners running on Solar power</i>
+  </p>
 
 
