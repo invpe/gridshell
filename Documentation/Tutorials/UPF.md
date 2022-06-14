@@ -26,5 +26,5 @@ This is because the UPF tells the system, that their miners are returning valid 
 
 The GridShell performance is tightly coupled with the users UPF values, the higher the UPF's the faster the Grid as the number of validation reduces.
 
-There will be more logic introduced for low UPF users within upcoming Grid Improvement Proposals.
+There will be more logic introduced for low UPF users within upcoming [Grid Improvement Proposals](https://github.com/invpe/gridshell/tree/main/GIP).
 
