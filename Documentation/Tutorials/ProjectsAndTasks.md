@@ -23,6 +23,8 @@ Projects are considered completed once all tasks are executed, however on top of
 In the current version of GridShell, tasks and projects are created by the Core-Team.
 Moving forward, when the grid network matures enough submitting tasks to the grid will be possible for everyone.
 
+Creating projects and submitting tasks to the grid, requires Shell Tokens - credits that are given to miners for executing the tasks correctly.
+
 # Why are tasks created ?
 There are various reasons for why you would like to distribute your computational workload to a grid system.
 The most common one the GridShell was approached with are:
