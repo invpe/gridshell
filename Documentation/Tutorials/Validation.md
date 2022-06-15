@@ -14,7 +14,7 @@ on miners that are called **validators**.
 
 When **validators** complete their work, the system compares results between **validator** and **miner** who completed the task.
 
-- If results are matching, the task results are considred to be correct.
+- If results are matching, the task results are considred to be correct - and the owner of the miner executing this task is rewarded with a Shell token.
 - If results are different, another round of execution is decided and process repeats.
 
 This is ensuring that no miner can return noise in their output and that each task is validated for its corretness.
