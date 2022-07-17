@@ -19,10 +19,10 @@ Miners
 148722804 - Server Public Key`
 
 3. Calculate miner Public, Private key and symmetric key
-4. `SHA1(symmetric_key)`
-5. `XOR(user_hash with SHA1(symmetric_key))`
-6. `BASE64ENCODE(XOR(user_hash, SHA1(symmetric_key)))`
-7. Send `JOB,miner_public_key,cipher,VERSION,MAC`
+4. `SHA1(symmetric_key)` - to generate a XOR key
+5. `XOR(user_hash with SHA1(symmetric_key))` - to generate cipher
+6. `BASE64ENCODE(XOR(user_hash, SHA1(symmetric_key)))` - to encode the cipher with base64
+7. Send `JOB,miner_public_key,base64_cipher,VERSION,MAC` - to identify with GridShell server
 8. Heartbeat by sending `PONG` to the server, every 10 seconds
 9. Wait for a task to be provided in a format of
 `EXEC,BASE64(basscript),BASE64(payload)` 
