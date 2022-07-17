@@ -10,9 +10,9 @@
 #define __CLIB_GRID__
 
 #include <WiFi.h>
-#include <HTTPClient.h>  
+#include <HTTPClient.h>
 #include "my_basic.hpp"
-#include "mbedtls/base64.h"
+#include "mbedtls/base64.h" 
 
 #define GMINER_SERVER "work.gridshell.net"
 #define GMINER_DEBUG 0
@@ -33,16 +33,22 @@ class CGridShell
     bool Init(const String& strUsername);
     void Pong();
     void Tick();
+    bool Connected();
     ~CGridShell();
   private:
     CGridShell();
+    String XOR(const String& toEncrypt,const String& rstrKey);
+    String sha1HW(String payload);
+    String sha1HW(unsigned char *payload, int len);
+    uint64_t power(uint64_t a, uint64_t b, uint64_t mod);
     String EncodeBase64(const String& strString);
-    String DecodeBase64(const String& strString); 
+    String DecodeBase64(const String& strString);
     void Send(const String& strData);
     String m_strUsername;
     String m_strMACAddress;
     uint32_t m_uiLastHB;
     uint32_t m_uiLastReconnection;
+    
     WiFiClient m_Client;
 };
 #endif

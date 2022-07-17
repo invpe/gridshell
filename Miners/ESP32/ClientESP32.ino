@@ -12,13 +12,13 @@
 ////////////////////////////////
 // Your WiFi Credentials here //
 ////////////////////////////////
-#define WIFI_SSID "XXXXXXXXXXX"
-#define WIFI_PWD  "YYYYYYYYYYY"
+#define WIFI_SSID ""
+#define WIFI_PWD  ""
 
 ////////////////////////////////
 // Your GridShell user-hash   //
 ////////////////////////////////
-#define GRID_USERHASH "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+#define GRID_USERHASH ""
 
 
 

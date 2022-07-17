@@ -84,6 +84,18 @@ void CGridShell::Pong()
 //  - Purpose   :
 //
 // -----------------------------------------------------------------------------
+bool CGridShell::Connected()
+{
+  return m_Client.connected();
+}
+// --[  Method  ]---------------------------------------------------------------
+//
+//  - Class     : CGridShell
+//  - Prototype :
+//
+//  - Purpose   :
+//
+// -----------------------------------------------------------------------------
 void CGridShell::Tick()
 {
   // Keep alive
@@ -104,8 +116,54 @@ void CGridShell::Tick()
       if (m_Client.connect(GMINER_SERVER, GMINER_POOL_PORT))
       {
         // Ident and provide payload if any, this is base64 encoded already by ::Init
-        String strServerVersion = m_Client.readString();
-        Send("JOB," + m_strUsername + "," + GMINER_VERSION + "," + m_strMACAddress + "\r\n");
+        String strServerWelcome = m_Client.readStringUntil('\n');
+
+        // ****************************
+        // Diffie-Hellman Key Exchange
+        // ****************************
+
+        // Get P,G and Server public key for our miner
+        String strServerP = m_Client.readStringUntil('\n');
+        String strServerG = m_Client.readStringUntil('\n');
+        String strServerPublicKey = m_Client.readStringUntil('\n');
+        GDEBUG("Got P=" + strServerP + " G=" + strServerG + " ServPubKey=" + strServerPublicKey);
+
+        //
+        uint64_t uiServerP          = strServerP.toInt();
+        uint64_t uiServerG          = strServerG.toInt();
+        uint64_t uiServerPublicKey  = strServerPublicKey.toInt();
+
+        // Calculate our private key
+        uint64_t uiDHPrivateKey = esp_random();
+
+        // Calculate our public key
+        uint64_t uiDHPublicKey = power(uiServerG, uiDHPrivateKey, uiServerP);
+
+        // Compute symmetric (secret) key
+        uint64_t uiKey = power(uiServerPublicKey, uiDHPrivateKey, uiServerP);
+
+        // ****************************
+        // SHA1
+        // ****************************
+
+        char cTemp[40];
+        sprintf(cTemp, "%llu", uiKey);
+        String sha1HashKey = sha1HW(cTemp);
+        
+        // ****************************
+        // XOR
+        // ****************************
+        
+        String strCipher = XOR(m_strUsername, sha1HashKey); 
+
+        // ****************************
+        // BASE64ENCODE
+        // ****************************
+
+        String strBase64EncodedGUID = EncodeBase64(strCipher); 
+        
+        // Pass my Public Key and GUID encoded
+        Send("JOB," + String(std::to_string(uiDHPublicKey).c_str()) + "," + strBase64EncodedGUID + "," + GMINER_VERSION + "," + m_strMACAddress + "\r\n");
       }
 
       //
@@ -151,7 +209,7 @@ void CGridShell::Tick()
         // Load up the script
         if (mb_load_string(bas, strScript.c_str(), true) == MB_FUNC_OK)
         {
-          // Json payload check and upload
+          // payload check and upload
           if (strPayload != "")
           {
             mb_value_t valAdd;
@@ -170,7 +228,7 @@ void CGridShell::Tick()
           // Needs to be a string
           if (valGet.type == MB_DT_STRING)
             strOutput = String(valGet.value.string);
-        } 
+        }
 
         GDEBUG("Script completed in " + String(millis() - uiStart) + " ms, RESCODE: " + String(iRetCode) + ", MEM: " + String(ESP.getFreeHeap()) + " OUTP: '" + strOutput + "'");
 
@@ -268,6 +326,92 @@ int CGridShell::MBStep(struct mb_interpreter_t* s, void** l, const char* f, int 
 
   //
   return MB_FUNC_OK;
+} 
+// --[  Method  ]---------------------------------------------------------------
+//
+//  - Class     : CGridShell
+//  - Prototype :
+//
+//  - Purpose   : HW SHA1
+//
+// -----------------------------------------------------------------------------
+String CGridShell::sha1HW(String payload)
+{
+  return sha1HW((unsigned char *)payload.c_str(), payload.length());
+}
+// --[  Method  ]---------------------------------------------------------------
+//
+//  - Class     : CGridShell
+//  - Prototype :
+//
+//  - Purpose   : HW SHA1
+//
+// -----------------------------------------------------------------------------
+String CGridShell::sha1HW(unsigned char *payload, int len)
+{
+  //
+  int size = 20;
+  byte shaResult[size];
+
+  mbedtls_md_context_t ctx;
+  mbedtls_md_type_t md_type = MBEDTLS_MD_SHA1;
+
+  const size_t payloadLength = len;
+
+  mbedtls_md_init(&ctx);
+  mbedtls_md_setup(&ctx, mbedtls_md_info_from_type(md_type), 0);
+  mbedtls_md_starts(&ctx);
+  mbedtls_md_update(&ctx, (const unsigned char *) payload, payloadLength);
+  mbedtls_md_finish(&ctx, shaResult);
+  mbedtls_md_free(&ctx);
+
+  String hashStr = "";
+
+  for (uint16_t i = 0; i < size; i++) {
+    String hex = String(shaResult[i], HEX);
+    if (hex.length() < 2) {
+      hex = "0" + hex;
+    }
+    hashStr += hex;
+  }
+
+  return hashStr;
+}
+// --[  Method  ]---------------------------------------------------------------
+//
+//  - Class     : CGridShell
+//  - Prototype :
+//
+//  - Purpose   :
+//
+// -----------------------------------------------------------------------------
+uint64_t CGridShell::power(uint64_t a, uint64_t b, uint64_t mod)
+{
+  uint64_t t;
+  if (b == 1)
+    return a;
+  t = power(a, b / 2, mod);
+  if (b % 2 == 0)
+    return (t * t) % mod;
+  else
+    return (((t * t) % mod) * a) % mod;
+} 
+// --[  Method  ]---------------------------------------------------------------
+//
+//  - Class     : CGridShell
+//  - Prototype :
+//
+//  - Purpose   :
+//
+// -----------------------------------------------------------------------------
+String CGridShell::XOR(const String& toEncrypt, const String& rstrKey)
+{
+  String output = toEncrypt;
+
+  for (int i = 0; i < toEncrypt.length(); i++)
+    output[i] = toEncrypt[i] ^ rstrKey[i % (rstrKey.length() / 1)];
+
+  return output;
 }
 // --[  Method  ]---------------------------------------------------------------
 //
